@@ -1,0 +1,46 @@
+body {
+    font-family: monospace;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+i {
+    font-size:x-large;
+    font-family: monospace;
+}
+
+main {
+    padding: 20px;
+}
+
+.container-input {
+    /* max-width: 60vw; */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+#products-container {
+    margin-top: 5px;
+    text-align: left;
+}
+
+.product-card {
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
