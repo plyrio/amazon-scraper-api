@@ -1,5 +1,5 @@
 // Define the API URL for the backend endpoint
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://amazon-scraper-api-e84u.onrender.com';
 
 // Add an event listener to the search button to trigger a function when clicked
 document.getElementById('search-btn').addEventListener('click', function () {
