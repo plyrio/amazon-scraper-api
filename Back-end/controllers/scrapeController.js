@@ -40,6 +40,10 @@ module.exports = class AmazonScraper {
             const response = await axios.get(url, config);
 
             const products = [];
+            const virtualConsole = new jsdom.VirtualConsole();
+            virtualConsole.sendTo(console, { omitJSDOMErrors: true });
+            const dom = new JSDOM(response.data, { virtualConsole });
+
             const dom = new JSDOM(response.data);
             const document = dom.window.document;
 
