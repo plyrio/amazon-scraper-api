@@ -3,78 +3,70 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
 module.exports = class AmazonScraper {
-    // Static method to scrape Amazon based on the provided keyword
-    static async scrapeAmazon(keyword) {
-        // User-Agent string to mimic a real browser request
-        const userAgent =
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3";
+    static userAgents = [
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15",
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Mobile/15E148 Safari/604.1"
+    ];
 
-        // Configuration object for the axios request
+    static getRandomUserAgent() {
+        return this.userAgents[Math.floor(Math.random() * this.userAgents.length)];
+    }
+
+    static async delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    static async scrapeAmazon(keyword) {
+        const userAgent = this.getRandomUserAgent();
+        
         const config = {
             headers: {
                 "User-Agent": userAgent,
+                "Accept-Language": "en-US,en;q=0.9",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                "Connection": "keep-alive",
+                "DNT": "1",
+                "Upgrade-Insecure-Requests": "1",
             },
         };
 
         console.log("Requesting Amazon with keyword:", keyword);
         try {
-            // Construct the URL with the encoded keyword
             const url = `https://www.amazon.com/s?k=${encodeURIComponent(keyword)}`;
-            // Make an HTTP GET request to Amazon
+            await this.delay(Math.floor(Math.random() * 3000) + 1000); // Delay between 1-4 seconds
             const response = await axios.get(url, config);
 
-            // Array to store the extracted products
             const products = [];
-
-            // Parse the response data using JSDOM
             const dom = new JSDOM(response.data);
             const document = dom.window.document;
 
-            // Select all product result items
             const items = document.querySelectorAll("div.s-result-item");
 
-            // Iterate over each product item and extract details
             items.forEach((item) => {
-                // Extract the product title
                 const titleElement = item.querySelector("h2.a-size-mini");
-                const title = titleElement
-                    ? titleElement.textContent.trim()
-                    : "N/A";
+                const title = titleElement ? titleElement.textContent.trim() : "N/A";
 
-                // Extract the product rating
                 const ratingElement = item.querySelector("span.a-icon-alt");
-                const rating = ratingElement
-                    ? ratingElement.textContent.trim().split(" ")[0]
-                    : "N/A";
+                const rating = ratingElement ? ratingElement.textContent.trim().split(" ")[0] : "N/A";
 
-                // Extract the number of reviews
                 const reviewsElement = item.querySelector("span.a-size-base");
-                const reviews = reviewsElement
-                    ? reviewsElement.textContent.trim()
-                    : "N/A";
+                const reviews = reviewsElement ? reviewsElement.textContent.trim() : "N/A";
 
-                // Extract the product image URL
                 const imageElement = item.querySelector("img.s-image");
                 const image = imageElement ? imageElement.src : "N/A";
 
-                // Check if all details are available and add to products array
-                if (
-                    title !== "N/A" &&
-                    rating !== "N/A" &&
-                    reviews !== "N/A" &&
-                    image !== "N/A"
-                ) {
+                if (title !== "N/A" && rating !== "N/A" && reviews !== "N/A" && image !== "N/A") {
                     products.push({ title, rating, reviews, image });
                 }
             });
-            console.log("Scraped Amazon successfully");
 
-            // Return the array of products
+            console.log("Scraped Amazon successfully");
             return products;
         } catch (error) {
-            // Log any errors that occur during the scraping process
             console.error("Error scraping Amazon:", error);
-            // Throw a new error with a custom message
             throw new Error("Failed to scrape Amazon: " + error.message);
         }
     }
