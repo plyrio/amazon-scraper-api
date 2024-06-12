@@ -6,10 +6,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 // Configure CORS options
-const corsOptions = {
-  origin: process.env.FRONT_URL
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Parse URL-encoded and JSON data
 app.use(express.urlencoded({ extended: true }));
