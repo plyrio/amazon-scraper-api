@@ -28,9 +28,10 @@ showaLoader();
         .then(data => {
             displayProducts(data); // Pass the JSON data to the displayProducts function
         })
-        .catch(error => console.error('Error fetching products:', error)); // Handle any errors
-}).finally(() => {
+        .catch(error => console.error('Error fetching products:', error)) // Handle any errors
+        .finally(() => {
 hideLoader();
+});
 });
 
 // Function to display the products on the webpage
