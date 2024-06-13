@@ -1,10 +1,26 @@
 // Define the API URL for the backend endpoint
 const API_URL = 'https://amazon-scraper-api-e84u.onrender.com';
 
+const loader = document.getElementById('loader');
+ 
+
+    // Função para exibir o loader
+    function showLoader() {
+        loader.style.display = 'block';
+    }
+
+    // Função para ocultar o loader
+    function hideLoader() {
+        loader.style.display = 'none';
+    }
+
 // Add an event listener to the search button to trigger a function when clicked
 document.getElementById('search-btn').addEventListener('click', function () {
     // Get the keyword input value from the search field
     const keyword = document.getElementById('keyword-input').value;
+
+//load the loader
+showaLoader();
 
     // Make an AJAX call to the backend endpoint using the Fetch API
     fetch(API_URL + `/api/scrape?keyword=${keyword}`)
@@ -13,6 +29,9 @@ document.getElementById('search-btn').addEventListener('click', function () {
             displayProducts(data); // Pass the JSON data to the displayProducts function
         })
         .catch(error => console.error('Error fetching products:', error)); // Handle any errors
+});
+.finally(() => {
+hideLoader();
 });
 
 // Function to display the products on the webpage
