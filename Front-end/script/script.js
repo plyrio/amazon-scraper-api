@@ -29,8 +29,7 @@ showaLoader();
             displayProducts(data); // Pass the JSON data to the displayProducts function
         })
         .catch(error => console.error('Error fetching products:', error)); // Handle any errors
-})
-.finally(() => {
+}).finally(() => {
 hideLoader();
 });
 
