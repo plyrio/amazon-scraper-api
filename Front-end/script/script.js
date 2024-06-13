@@ -20,7 +20,7 @@ document.getElementById('search-btn').addEventListener('click', function () {
     const keyword = document.getElementById('keyword-input').value;
 
 //load the loader
-showaLoader();
+showLoader();
 
     // Make an AJAX call to the backend endpoint using the Fetch API
     fetch(API_URL + `/api/scrape?keyword=${keyword}`)
