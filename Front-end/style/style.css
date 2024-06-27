@@ -4,10 +4,12 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     font-family: monospace;
     background-color: #f4f4f4;
     text-align: center;
+    height: 100%;
+    overflow: hidden;
 }
 
 i {
@@ -15,7 +17,7 @@ i {
 }
 
 main {
-    padding: 20px;
+    padding: 5px;
 }
 
 .container-input {
