@@ -6,7 +6,7 @@ const loader = document.getElementById('loader');
 
     // Função para exibir o loader
     function showLoader() {
-        loader.style.display = 'flex';
+        loader.style.display = 'block';
     }
 
     // Função para ocultar o loader
