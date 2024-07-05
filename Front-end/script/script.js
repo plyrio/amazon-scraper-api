@@ -18,6 +18,10 @@ const loader = document.getElementById('loader');
 document.getElementById('search-btn').addEventListener('click', function () {
     // Get the keyword input value from the search field
     const keyword = document.getElementById('keyword-input').value;
+        const productsContainer = document.getElementById('products-container');
+    // Clear any existing content in the products container
+    productsContainer.innerHTML = '';
+
 
 //load the loader
 showLoader();
