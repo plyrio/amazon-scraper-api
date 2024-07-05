@@ -45,19 +45,30 @@ input[type="text"] {
     text-align: left;
 }
 
-.loader {
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  background:conic-gradient(#0000 10%,#060D38);
-  -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 16px),#000 0);
-  animation:s3 2s infinite linear;
-  display: none;
-  justify-content: center;
-   align-items: center;
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Certifique-se de que o contêiner ocupe a altura total da viewport */
+    width: 100vw; /* Certifique-se de que o contêiner ocupe a largura total da viewport */
 }
 
-@keyframes s3 {to{transform: rotate(1turn)}}
+.loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(#0000 10%, #060D38);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 16px), #000 0);
+    animation: s3 2s infinite linear;
+    display: none; /* Iniciado como oculto */
+}
+
+@keyframes s3 {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
 
 .product-card {
     border-radius: 5px;
