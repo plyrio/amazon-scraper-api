@@ -20,7 +20,7 @@ document.getElementById('search-btn').addEventListener('click', function () {
     const keyword = document.getElementById('keyword-input').value;
         const productsContainer = document.getElementById('products-container');
     // Clear any existing content in the products container
-    productsContainer.innerHTML = '';
+    productsContainer.innerHTML = '<div class='loader'></div>';
 
 
 //load the loader
