@@ -4,12 +4,12 @@ const API_URL = 'https://amazon-scraper-api-e84u.onrender.com';
 const loader = document.getElementById('loader');
  
 
-    // Função para exibir o loader
+    // Function to show the loader
     function showLoader() {
       loader.style.display = 'flex';
     }
 
-    // Função para ocultar o loader
+    // Function to hide the loader
     function hideLoader() {
         loader.style.display = 'none';
     }
@@ -50,7 +50,6 @@ function displayProducts(products) {
         productCard.classList.add('product-card');
         // Set the inner HTML of the product card with product details
         productCard.innerHTML = `
-<div class="loader" id="loader"></div>
 <div class="card mb-3" style="max-width: 100vw;">
   <div class="row g-0">
     <div class="col-md-4">
