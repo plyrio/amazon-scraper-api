@@ -6,7 +6,7 @@ const loader = document.getElementById('loader');
 
     // Função para exibir o loader
     function showLoader() {
-      loader.style.display = 'block';
+      loader.style.display = 'flex';
     }
 
     // Função para ocultar o loader
@@ -18,9 +18,6 @@ const loader = document.getElementById('loader');
 document.getElementById('search-btn').addEventListener('click', function () {
     // Get the keyword input value from the search field
     const keyword = document.getElementById('keyword-input').value;
-        const productsContainer = document.getElementById('products-container');
-    // Clear any existing content in the products container
-    productsContainer.innerHTML = '<div class="loader" id="loader"></div>';
 
 
 //load the loader
