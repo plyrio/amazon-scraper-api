@@ -6,12 +6,14 @@ const loader = document.getElementById('loader');
 
     // Função para exibir o loader
     function showLoader() {
-        loader.style.display = 'block';
+      loader.classList.remove = 'd-none';
+        loader.classList.add = 'd-flex';
     }
 
     // Função para ocultar o loader
     function hideLoader() {
-        loader.style.display = 'none';
+        loader.classList.remove = 'd-flex';
+        loader.classList.add = 'd-none';
     }
 
 // Add an event listener to the search button to trigger a function when clicked

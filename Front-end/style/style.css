@@ -10,7 +10,7 @@ body {
     background-color: #f4f4f4;
     text-align: center;
     height: 100%;
-    overflow: auto;
+    overflow-x: hidden;
 }
 
 i {
@@ -18,7 +18,7 @@ i {
 }
 
 main {
-    padding: 5px;
+    padding: 3px;
 }
 
 .container-input {
@@ -43,18 +43,6 @@ input[type="text"] {
 #products-container {
     margin-top: 3px;
     text-align: left;
-}
-
-.loader-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Certifique-se de que o contêiner ocupe a altura total da viewport */
-    width: 100vw; /* Certifique-se de que o contêiner ocupe a largura total da viewport */
-}
-
-.loader {
-    display: none;
 }
 
 
