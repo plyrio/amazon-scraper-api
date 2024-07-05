@@ -50,6 +50,7 @@ function displayProducts(products) {
         productCard.classList.add('product-card');
         // Set the inner HTML of the product card with product details
         productCard.innerHTML = `
+<div class="loader" id="loader"></div>
 <div class="card mb-3" style="max-width: 100vw;">
   <div class="row g-0">
     <div class="col-md-4">
