@@ -58,6 +58,7 @@ input[type="text"] {
                         margin-top: -25px;
                           margin-left: -25px;
 display: none;
+z-index: 999;
                           }
 
                           @keyframes spin {
