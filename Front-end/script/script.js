@@ -1,19 +1,17 @@
 // Define the API URL for the backend endpoint
 const API_URL = 'https://amazon-scraper-api-e84u.onrender.com';
 
-const loader = document.getElementsByClassName('loader');
+const loader = document.getElementsById('loader');
  
 
     // Função para exibir o loader
     function showLoader() {
-      loader.classList.remove = 'd-none';
-        loader.classList.add = 'd-flex';
+      loader.style.display = 'block';
     }
 
     // Função para ocultar o loader
     function hideLoader() {
-        loader.classList.remove = 'd-flex';
-        loader.classList.add = 'd-none';
+        loader.style.display = 'none';
     }
 
 // Add an event listener to the search button to trigger a function when clicked
