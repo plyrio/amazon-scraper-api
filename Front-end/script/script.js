@@ -1,7 +1,7 @@
 // Define the API URL for the backend endpoint
 const API_URL = 'https://amazon-scraper-api-e84u.onrender.com';
 
-const loader = document.getElementsById('loader');
+const loader = document.getElementById('loader');
  
 
     // Função para exibir o loader
