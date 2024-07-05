@@ -57,6 +57,7 @@ input[type="text"] {
                       left: 50%;
                         margin-top: -25px;
                           margin-left: -25px;
+display: none;
                           }
 
                           @keyframes spin {
