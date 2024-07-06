@@ -36,7 +36,7 @@ module.exports = class AmazonScraper {
         console.log("Requesting Amazon with keyword:", keyword);
         try {
             const url = `https://www.amazon.com/s?k=${encodeURIComponent(keyword)}`;
-            // await this.delay(Math.floor(Math.random() * 100) + 200); // Delay between 1-2 seconds
+            await this.delay(Math.floor(Math.random() * 2000) + 1000); // Delay between 1-2 seconds
             const response = await axios.get(url, config);
 
             const products = [];
